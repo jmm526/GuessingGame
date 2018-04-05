@@ -6,6 +6,8 @@ function Game() {
 
 	this.winningNumber = generateWinningNumber();
 
+	this.hint = this.provideHint();
+
 };
 
 Game.prototype.difference = function() { return Math.abs(this.playersGuess - this.winningNumber); }
@@ -134,7 +136,7 @@ $(document).ready(function() {
 	});
 
 	$('#hint').click(function(e) {
-		$('#title').text('Solution is one of: ' + game.provideHint());
+		$('#title').text('Solution is one of: ' + game.hint);
 	});
 
 	$('#reset').click(function(e) {
